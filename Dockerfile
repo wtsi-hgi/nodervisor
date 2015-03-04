@@ -25,8 +25,5 @@ WORKDIR /opt/nodervisor
 # Install npm packages for nodervisor
 RUN npm install
 
-# Expose port 3000
-EXPOSE 3000
-
 # Run npm start by default
 CMD ["/usr/bin/npm","start"]
