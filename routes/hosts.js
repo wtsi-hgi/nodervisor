@@ -12,7 +12,7 @@ exports.hosts = function(params) {
 		} else if (req.body.delete !== undefined) {
 			if (req.params.idHost) {
 				params.db('hosts').delete()
-				.where('id', req.params.idHost)
+				.where('idHost', req.params.idHost)
 				.exec(function() {
 					params.config.readHosts(params.db, function(){
 						res.redirect('/hosts');

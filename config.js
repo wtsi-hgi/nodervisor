@@ -43,9 +43,9 @@ config.sessionstore = {
 };
 
 // Application env config
-config.port = 3000;
-config.env = 'production';
-config.sessionSecret = '1234567890ABCDEF';
+config.port = process.env.PORT || 3000;
+config.env = process.env.ENV || 'production';
+config.sessionSecret = process.env.SECRET || '1234567890ABCDEF';
 
 // Read and write settings
 config.readHosts = function(db, callback){

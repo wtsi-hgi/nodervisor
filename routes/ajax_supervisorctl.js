@@ -23,7 +23,7 @@ exports.ajax_supervisorctl = function(params) {
 					var supclient = supervisordapi.connect(config.hosts[host].Url);
 					switch (action) {
 						case 'stop': {
-							supclient.stopProcessGroup(process, function(){
+							supclient.stopProcess(process, function(){
 								res.send({result: 'success'});
 							});
 						}

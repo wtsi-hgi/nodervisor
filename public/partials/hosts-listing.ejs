@@ -107,13 +107,18 @@ for (state in sortedstatuses) {
                 <td>
                     <%
                         if (role == 'Admin') {
+                            if (processes[i].group){
+                              processFullname = processes[i].group + ':' + processes[i].name;
+                            } else {
+                              processFullname = processes[i].name;
+                            }
                             if (processes[i].statename == 'RUNNING') {
                                 %>
-                                    <button type="button" class="btn btn-labeled btn-danger super-action" data-action="stop" data-process="<%= processes[i].name %>" data-host="<%= host.idHost %>"><span class="btn-label"><i class="glyphicon glyphicon-minus-sign"></i></span>Stop</button>
+                                    <button type="button" class="btn btn-labeled btn-danger super-action" data-action="stop" data-process="<%= processFullname %>" data-host="<%= host.idHost %>"><span class="btn-label"><i class="glyphicon glyphicon-minus-sign"></i></span>Stop</button>
                                 <%
                             } else if ((processes[i].statename == 'FATAL') || (processes[i].statename == 'STOPPED')) {
                                 %>
-                                    <button type="button" class="btn btn-labeled btn-success super-action" data-action="start" data-process="<%= processes[i].name %>" data-host="<%= host.idHost %>"><span class="btn-label"><i class="glyphicon glyphicon-ok"></i></span>Start</button>
+                                    <button type="button" class="btn btn-labeled btn-success super-action" data-action="start" data-process="<%= processFullname %>" data-host="<%= host.idHost %>"><span class="btn-label"><i class="glyphicon glyphicon-ok"></i></span>Start</button>
                                 <%
                             } else {
                                 %>
@@ -122,7 +127,7 @@ for (state in sortedstatuses) {
                             }
                         }
                     %>
-                    <a href="/log/<%= host.idHost %>/<%= processes[i].name %>/out" class="btn btn-default"><i class="glyphicon glyphicon-tasks"></i></a>
+                    <a href="/log/<%= host.idHost %>/<%= processFullname %>/out" class="btn btn-default"><i class="glyphicon glyphicon-tasks"></i></a>
                 </td>
             </tr>
         <% } %>
