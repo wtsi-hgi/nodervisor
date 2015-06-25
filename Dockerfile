@@ -23,7 +23,7 @@ ADD . /opt/nodervisor
 WORKDIR /opt/nodervisor
 
 # Install npm packages for nodervisor
-RUN npm install
+RUN npm update
 
 # Run npm start by default
 CMD ["/usr/bin/npm","start"]
