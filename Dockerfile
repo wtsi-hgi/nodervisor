@@ -1,9 +1,9 @@
-# 
+#
 # nodervisor Dockerfile
 #
 # to build:
 #    `docker build -t nodervisor .`
-# to run, using sqlite database bind-mounted from host system: 
+# to run, using sqlite database bind-mounted from host system:
 #    `touch nodervisor.sqlite`
 #    `docker run -p 3000:3000 -v nodervisor.sqlite:/opt/nodervisor/nodervisor.sqlite nodervisor`
 
@@ -24,6 +24,9 @@ WORKDIR /opt/nodervisor
 
 # Install npm packages for nodervisor
 RUN npm install
+
+# Volume
+VOLUME /opt/nodervisor
 
 # Run npm start by default
 CMD ["/usr/bin/npm","start"]
