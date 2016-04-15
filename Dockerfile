@@ -5,7 +5,7 @@
 #    `docker build -t nodervisor .`
 # to run, using sqlite database bind-mounted from host system:
 #    `touch nodervisor.sqlite`
-#    `docker run -p 3000:3000 -v nodervisor.sqlite:/opt/nodervisor/nodervisor.sqlite nodervisor`
+#    `docker run -p 3000:3000 -v $(pwd)/nodervisor.sqlite:/opt/nodervisor/nodervisor.sqlite nodervisor`
 
 FROM ubuntu:14.04
 MAINTAINER "Joshua C. Randall" <jcrandall@alum.mit.edu>
